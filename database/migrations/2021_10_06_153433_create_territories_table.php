@@ -15,6 +15,10 @@ class CreateTerritoriesTable extends Migration
     {
         Schema::create('territories', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('zone_id')->references('id')->on('zones')->onDelete('cascade');
+            $table->foreignId('region_id')->references('id')->on('regions')->onDelete('cascade');
+            $table->string('code')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }

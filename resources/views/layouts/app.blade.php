@@ -41,7 +41,8 @@
                             <a class="nav-link" href="{{ route('regions.index') }}">Regions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link {{ request()->is('territories') ? 'active' : '' }}"
+                                href="{{ route('territories.index') }}">Territories</a>
                         </li>
 
                     </ul>
@@ -89,5 +90,6 @@
             @yield('content')
         </main>
     </div>
+    
 </body>
 </html>

@@ -18,4 +18,8 @@ class Region extends Model
     public function zone(){
         return $this->belongsTo(Zone::class);
     }
+
+    public function territories(){
+        return $this->hasMany(Territory::class);
+    }
 }

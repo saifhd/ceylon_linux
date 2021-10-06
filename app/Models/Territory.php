@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Territory extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'region_id',
+        'code',
+        'name'
+    ];
+
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
 }

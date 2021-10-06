@@ -58,5 +58,15 @@ class RegionsController extends Controller
         return redirect()->back()->with('success','Success - Region Deleted');
     }
 
+    public function fetchRegions($id){
+        $regions=Zone::findOrFail($id)->regions;
+        return response()->json($regions);
+    }
+    public function fetchZone($id){
+        $region=Region::findOrFail($id);
+        $zone=$region->zone;
+        return response()->json($zone);
+    }
+
 
 }
