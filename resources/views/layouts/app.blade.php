@@ -37,8 +37,8 @@
                         <li class="nav-item {{ request()->is('zones') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('zones.index') }}">Zones <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                        <li class="nav-item {{ request()->is('regions') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('regions.index') }}">Regions</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>

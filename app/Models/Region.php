@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Zone extends Model
+class Region extends Model
 {
     use HasFactory;
 
     protected $fillable=[
-        'code',
-        'short_description',
-        'long_description'
+        'zone_id',
+        'name',
+        'code'
     ];
 
-    public function regions(){
-        return $this->hasMany(Region::class);
+    public function zone(){
+        return $this->belongsTo(Zone::class);
     }
 }

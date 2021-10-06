@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ZonesRequest;
 use App\Models\Zone;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ZonesController extends Controller
 {
@@ -14,7 +14,11 @@ class ZonesController extends Controller
     }
 
     public function create(){
-        $zones_count=Zone::orderBy('id','desc')->first()->id;
+        $zones_count=0;
+        $data=Zone::orderBy('id','desc')->first();
+        if(!is_null($data)){
+            $zones_count=$data->id;
+        }
         $code_number=(int)$zones_count+1;
         $code='ZONE'.(int)$code_number;
         return view('admin.zones.create',compact('code'));

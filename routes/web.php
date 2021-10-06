@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ZonesController;
+use App\Http\Controllers\Admin\RegionsController;
+use App\Http\Controllers\Admin\ZonesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware'=>'auth'],function(){
     Route::resource('zones', ZonesController::class);
+    Route::resource('regions', RegionsController::class);
 
 });
