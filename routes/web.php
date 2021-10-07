@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\TerritoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ZonesController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Admin\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +48,10 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('territories', TerritoriesController::class);
 
         //UsersController Routes
-        Route::resource('users', UsersController::class);
+        Route::get('users', [UsersController::class,'index'])->name('users.index');
+        Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
+        Route::post('users', [UsersController::class, 'store'])->name('users.store');
+
         //Products Route
         Route::get('products', [ProductsController::class,'index'])->name('products.index');
         Route::get('products/create', [ProductsController::class, 'create'])->name('products.create');

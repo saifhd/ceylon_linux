@@ -11,11 +11,10 @@ class OrdersController extends Controller
 {
     public function index(){
         $orders=Order::latest()->with(['destributor','territory','region'])->paginate(10);
-        // dd($orders);
         return view('user.orders.index',compact('orders'));
     }
 
-    
+
 
     public function create(){
         $po_no=1;
@@ -45,7 +44,7 @@ class OrdersController extends Controller
             'zone_id'=>$request->zone,
             'region_id'=>$request->region,
             'territory_id'=>$request->territory,
-            // 'remark'=>$request->remark,
+            'remark'=>$request->remark,
             'destributor_id'=>$request->destributor,
             'total'=>$total
         ]);

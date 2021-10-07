@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateTerritoryRequest;
 use App\Models\Region;
 use App\Models\Territory;
 use App\Models\Zone;
-use Illuminate\Http\Request;
 
 class TerritoriesController extends Controller
 {

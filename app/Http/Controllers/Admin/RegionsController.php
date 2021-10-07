@@ -7,7 +7,6 @@ use App\Http\Requests\RegionsRequest;
 use App\Http\Requests\UpdateRegionsRequest;
 use App\Models\Region;
 use App\Models\Zone;
-use Illuminate\Http\Request;
 
 class RegionsController extends Controller
 {
