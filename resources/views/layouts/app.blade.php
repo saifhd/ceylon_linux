@@ -32,8 +32,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    @auth
 
+
+                    <ul class="navbar-nav mr-auto">
+                        @if(auth()->user()->role_id == 1)
                         <li class="nav-item {{ request()->is('zones') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('zones.index') }}">Zones <span class="sr-only">(current)</span></a>
                         </li>
@@ -52,6 +55,14 @@
                             <a class="nav-link {{ request()->is('products') ? 'active' : '' }}"
                                 href="{{ route('products.index') }}">Products</a>
                         </li>
+                        @endif
+                        @if (auth()->user()->role_id == 2 || auth()->user()->role_id==1)
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('orders') ? 'active' : '' }}"
+                                href="{{ route('orders.index') }}">Orders</a>
+                        </li>
+                        @endif
+                        @endauth
 
                     </ul>
 

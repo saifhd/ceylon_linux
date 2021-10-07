@@ -17,4 +17,7 @@ class Product extends Model
         'weight',
         'volume',
     ];
+    public function orders(){
+        return $this->belongsToMany(Order::class);
+    }
 }

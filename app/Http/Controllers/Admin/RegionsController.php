@@ -67,6 +67,11 @@ class RegionsController extends Controller
         $zone=$region->zone;
         return response()->json($zone);
     }
+    public function fetchTerritories($id){
+        $region=Region::findOrFail($id);
+        $territories=$region->territories;
+        return response()->json($territories);
+    }
 
 
 }
