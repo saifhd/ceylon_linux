@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\RegionsController;
 use App\Http\Controllers\Admin\TerritoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ZonesController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,5 +44,10 @@ Route::group(['middleware'=>'auth'],function(){
 
     //UsersController Routes
     Route::resource('users', UsersController::class);
+
+    //Products Route
+    Route::get('products', [ProductsController::class,'index'])->name('products.index');
+    Route::get('products/create', [ProductsController::class, 'create'])->name('products.create');
+    Route::post('products', [ProductsController::class, 'store'])->name('products.store');
 
 });
