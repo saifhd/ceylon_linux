@@ -21,7 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'nic',
+        'address',
+        'mobile',
+        'gender_id',
+        'territory_id',
+        'user_name',
     ];
 
     /**
@@ -42,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function gender(){
+        return $this->belongsTo(Gender::class);
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
 }

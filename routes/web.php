@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RegionsController;
 use App\Http\Controllers\Admin\TerritoriesController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ZonesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     //territory Routes
     Route::resource('territories', TerritoriesController::class);
+
+    //UsersController Routes
+    Route::resource('users', UsersController::class);
 
 });

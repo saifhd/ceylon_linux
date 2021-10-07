@@ -44,6 +44,10 @@
                             <a class="nav-link {{ request()->is('territories') ? 'active' : '' }}"
                                 href="{{ route('territories.index') }}">Territories</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('users') ? 'active' : '' }}"
+                                href="{{ route('users.index') }}">Users</a>
+                        </li>
 
                     </ul>
 
@@ -90,6 +94,6 @@
             @yield('content')
         </main>
     </div>
-    
+
 </body>
 </html>
